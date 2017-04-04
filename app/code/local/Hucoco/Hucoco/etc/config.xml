@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Hucoco_Hucoco>
+            <version>1.0</version>
+        </Hucoco_Hucoco>
+    </modules>
+    <admin>
+        <routers>
+            <makeproductdefaultimages>
+                <use>admin</use>
+                <args>
+                    <module>Hucoco_Hucoco</module>
+                    <frontName>makeproductdefaultimages</frontName>
+                </args>
+            </makeproductdefaultimages>
+        </routers>
+    </admin>
+    <adminhtml>
+	<!--
+        <menu>
+            <catalog module="customoptionspricegrid">
+                <children>
+                    <customoptionspricegrid translate="title" module="catalog">
+                        <title>Custom Options Price Grid</title>
+                        <sort_order>1</sort_order>
+                        <action>customoptionspricegrid/adminhtml_index</action>
+                    </customoptionspricegrid>
+                </children>
+            </catalog>
+        </menu>
+	-->
+	<!--
+        <layout>
+            <updates>
+                <customoptionspricegrid>
+                    <file>customoptionspricegrid.xml</file>
+                </customoptionspricegrid>
+            </updates>
+        </layout>
+	-->
+    </adminhtml>
+    <global>
+	<!--
+        <blocks>
+            <customoptionspricegrid>
+                <class>Xpscommerce_CustomoptionsPricegrid_Block</class>
+            </customoptionspricegrid>
+        </blocks>
+	-->
+        <models>
+            <hucoco>
+                <class>Hucoco_Hucoco_Model</class>
+            </hucoco>
+        </models>
+	<!--
+        <helpers>
+            <customoptionspricegrid>
+                <class>Xpscommerce_CustomoptionsPricegrid_Helper</class>
+            </customoptionspricegrid>
+        </helpers>
+	-->
+	<events>
+		<adminhtml_widget_container_html_before>
+			<observers>
+				<add_button_makeimages>
+					<class>hucoco/observer</class>
+					<method>addButtonMakeimages</method>
+				</add_button_makeimages>	
+			</observers>
+		</adminhtml_widget_container_html_before>
+	</events>
+    </global>
+</config>
+
